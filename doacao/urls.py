@@ -1,11 +1,14 @@
 from django.urls import path
-from .views import cadastrar_usuarios
-from .views import produtos
-from .views import cadastrar_instituicoes
+
+from .views import UsuarioCreate
+
 
 urlpatterns = [
-    path('cadastrar/usuarios', cadastrar_usuarios, name='cadastrar_usuarios'),
-    path('cadastrar/instituicoes', cadastrar_instituicoes, name='cadastrar_instituicoes'),
-    path('produtos', produtos, name='produtos')
+    path('cadastrar/usuario/', UsuarioCreate.as_view(), name="cadastrar-usuario"),
+    
+    #path('usuarios', cadastrar_usuarios, name='cadastrar_usuarios'),
+    #path('instituicoes', cadastrar_instituicoes, name='cadastrar_instituicoes'),
+    #path('produtos', produtos, name='produtos'),
+    #path('', inicio, name='inicio'),
 
 ]

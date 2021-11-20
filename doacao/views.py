@@ -1,13 +1,24 @@
+from django.db.models import fields
 from django.shortcuts import render, redirect
-from .models import Usuario
-
+from .models import Usuario, Instituicao
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
-def cadastrar_usuarios(request):
-   return render(request, 'usuarios.html')
+class UsuarioCreate(CreateView):
+   model = Usuario
+   fields = ['nome', 'email']
+   template_name = 'usuarios.html'
+   sucess_url = reverse_lazy('base')
 
-def cadastrar_instituicoes(request):
-   return render(request, 'instituicoes.html')
+#def inicio(request):
+ # return render(request, 'base.html')
 
-def produtos(request):
-   return render(request, 'produtos.html')
+#def cadastrar_usuarios(request):
+ # return render(request, 'usuarios.html')
+
+#def cadastrar_instituicoes(request):
+ # return render(request, 'instituicoes.html')
+
+#def produtos(request):
+# return render(request, 'produtos.html')
