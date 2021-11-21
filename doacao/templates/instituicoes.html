@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-  <div class="container">
-    <div class="row">
-      <div class="col-sm pt-5">
-        <h3>INstituições :D</h3>
-       </div>
-    </div>
-  </div>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-success">
+         Cadastrar
+  </button>
+</form>
 {% endblock %}

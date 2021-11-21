@@ -11,8 +11,14 @@ class UsuarioCreate(CreateView):
    template_name = 'usuarios.html'
    sucess_url = reverse_lazy('base')
 
-#def inicio(request):
- # return render(request, 'base.html')
+class InstituicaoCreate(CreateView):
+   model = Instituicao
+   fields = ['nome', 'email', 'endereco']
+   template_name = 'instituicoes.html'
+   sucess_url = reverse_lazy('base')
+
+def inicio(request):
+ return render(request, 'base.html')
 
 #def cadastrar_usuarios(request):
  # return render(request, 'usuarios.html')
