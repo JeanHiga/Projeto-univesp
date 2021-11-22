@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<table class="table table-striped">
+    <tr>
+        <th>id</th>
+        <th>nome</th>
+        <th>email</th>
+        <th>endereço</th>
+        <th>Opções</th>
+    </tr>
+    {% for instituicao in object_list %}
+    <tr>
+        <td>{{instituicao.id}}</td>
+        <td>{{instituicao.nome}}</td>
+        <td>{{instituicao.email}}</td>
+        <td>{{instituicao.endereco}}</td>
+        <td>
+            <a href="{% url 'deletar-instituicao' instituicao.pk %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'deletar-instituicao' instituicao.pk %}" class="btn btn-danger">Excluir</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">Nenhuma usuario cadastrada!</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

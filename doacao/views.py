@@ -30,9 +30,18 @@ class Usuariolist(ListView):
 ########Instituição################
 class InstituicaoCreate(CreateView):
    model = Instituicao
-   fields = ['nome', 'email', 'endereco', 'produto']
+   fields = ['nome', 'email', 'endereco']
    template_name = 'form.html'
    success_url = reverse_lazy("base")
+
+class InstituicaoDelete(DeleteView):
+   model = Instituicao
+   template_name = 'formdelete.html'
+   success_url = reverse_lazy("listar-instituicao")
+
+class Instituicaolist(ListView):
+   model = Instituicao
+   template_name = 'listarinstituicao.html'
 
 
 

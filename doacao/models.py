@@ -20,8 +20,7 @@ class Instituicao(models.Model):
    email = models.CharField(max_length= 100, verbose_name="e-mail")
    endereco = models.CharField(max_length= 255,verbose_name="Endereço")
 
-   produto = models.ForeignKey(Produto, on_delete=models.PROTECT)
 
    def __str__(self):
-      return "{} ({}) ({}) ({})".format(self.nome, self.email, self.endereco, self.produto) 
+      return "{} ({}) ({}) ".format(self.nome, self.email, self.endereco) 
 
