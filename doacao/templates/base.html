@@ -1,27 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
+{% load crispy_forms_tags %} 
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Doações</title>
+    <title>Projeto Doações</title>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+
+</head>
 </head>
 <body>
-    {% block menu %}
-    <div class=”header”>
-        ...
+  {% block menu %}
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      Cadastros
+    </a>
+    <div class="dropdown-menu">
+        {% block menu_drop %}
+      <a class="dropdown-item" href="{% url 'listar-usuario' %}"> Listar </a>
+      <a class="dropdown-item" href="{% url 'cadastrar-usuario' %}"> Cadastar Usuario </a>
+      <a class="dropdown-item" href="{% url 'cadastrar-instituicao' %}"> Cadastar Instituição </a>
+      
+        {% endblock %}
     </div>
+  </li> 
   {% endblock %}
 
   {% block conteudo %}
     <div class=”container”>
-        ...
+     
+        
     </div>
   {% endblock %}
 
   {% block rodape %}
     <div class=”footer”>
-        ...
+     
+        
     </div>
   {% endblock %}
 </body>

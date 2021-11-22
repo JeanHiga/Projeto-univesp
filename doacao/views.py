@@ -1,30 +1,41 @@
-from django.db.models import fields
-from django.shortcuts import render, redirect
 from .models import Usuario, Instituicao
-from django.urls import reverse_lazy
+
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView
+from django.views.generic.list import ListView
+
+from django.urls import reverse_lazy
+
 
 # Create your views here.
+class BaseView(TemplateView):
+   template_name = 'base.html'
+
+##########USUARIO##############
 class UsuarioCreate(CreateView):
    model = Usuario
    fields = ['nome', 'email']
-   template_name = 'usuarios.html'
-   sucess_url = reverse_lazy('base')
+   template_name = 'form.html'
+   success_url = reverse_lazy('base')
 
+class UsuarioDelete(DeleteView):
+   model = Usuario
+   template_name = 'formdelete.html'
+   success_url = reverse_lazy("listar-usuario")
+
+class Usuariolist(ListView):
+   model = Usuario
+   template_name = 'listarusuario.html'
+   
+########Instituição################
 class InstituicaoCreate(CreateView):
    model = Instituicao
-   fields = ['nome', 'email', 'endereco']
-   template_name = 'instituicoes.html'
-   sucess_url = reverse_lazy('base')
+   fields = ['nome', 'email', 'endereco', 'produto']
+   template_name = 'form.html'
+   success_url = reverse_lazy("base")
 
-def inicio(request):
- return render(request, 'base.html')
 
-#def cadastrar_usuarios(request):
- # return render(request, 'usuarios.html')
 
-#def cadastrar_instituicoes(request):
- # return render(request, 'instituicoes.html')
+########Produtos#####################  
 
-#def produtos(request):
-# return render(request, 'produtos.html')
+
