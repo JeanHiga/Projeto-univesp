@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import BaseView, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist
+from .views import BaseView, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate
 
 
 urlpatterns = [
@@ -13,4 +13,7 @@ urlpatterns = [
     path('cadastrar/instituicao/', InstituicaoCreate.as_view(),name="cadastrar-instituicao"),
     path('excluir/instituicao/<int:pk>/', InstituicaoDelete.as_view(), name="deletar-instituicao"),
     path('listar/instituicao/', Instituicaolist.as_view(), name="listar-instituicao"),
+
+    path('cadastrar/produto/', ProdutoCreate.as_view(),name="cadastrar-produto"),
+    path('listar/pedido/', Produtolist.as_view(), name="listar-pedido"),
 ]

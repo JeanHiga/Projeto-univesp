@@ -19,14 +19,16 @@
   {% block menu %}
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      Cadastros
+      MENU
     </a>
     <div class="dropdown-menu">
         {% block menu_drop %}
-      <a class="dropdown-item" href="{% url 'listar-usuario' %}"> Listar Usuario </a>
-      <a class="dropdown-item" href="{% url 'listar-instituicao' %}"> Listar Instituição </a>
       <a class="dropdown-item" href="{% url 'cadastrar-usuario' %}"> Cadastar Usuario </a>
       <a class="dropdown-item" href="{% url 'cadastrar-instituicao' %}"> Cadastar Instituição </a>
+      <a class="dropdown-item" href="{% url 'cadastrar-produto' %}"> Cadastar Produto </a>    
+      <a class="dropdown-item" href="{% url 'listar-usuario' %}"> Listar Usuario </a>
+      <a class="dropdown-item" href="{% url 'listar-instituicao' %}"> Listar Instituição </a>
+      <a class="dropdown-item" href="{% url 'listar-pedido' %}"> Listar Pedido </a>
       
         {% endblock %}
     </div>

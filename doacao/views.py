@@ -1,4 +1,4 @@
-from .models import Usuario, Instituicao
+from .models import Produto, Usuario, Instituicao
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView
@@ -46,5 +46,17 @@ class Instituicaolist(ListView):
 
 
 ########Produtos#####################  
+
+class Produtolist(ListView):
+   model = Produto
+   template_name = 'listarpedido.html'
+   
+class ProdutoCreate(CreateView):
+   model = Produto
+   fields = ['nome', 'quantidade', 'instituicao']
+   template_name = 'form.html'
+   success_url = reverse_lazy('base')
+
+
 
 
