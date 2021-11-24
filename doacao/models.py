@@ -18,10 +18,17 @@ class Instituicao(models.Model):
 class Produto(models.Model):
    nome = models.CharField(max_length = 100, verbose_name="Nome do Produto")
    quantidade = models.IntegerField(verbose_name="Quantidade")
-   instituicao = models.ForeignKey(Instituicao, on_delete=models.PROTECT)
+   instituicao = models.ForeignKey(Instituicao, on_delete=models.CASCADE)
 
    def __str__(self):
       return "{} ({}) ({})".format(self.nome, self.quantidade, self.instituicao)
 
+class Doador(models.Model):
+   usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+   produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+   instituicao = models.ForeignKey(Instituicao, on_delete=models.CASCADE)
+
+   def __str__(self):
+      return "{} ({}) ({})".format(self.usuario, self.produto, self.instituicao)
 
 

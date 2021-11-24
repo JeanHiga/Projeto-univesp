@@ -1,4 +1,4 @@
-from .models import Produto, Usuario, Instituicao
+from .models import Produto, Usuario, Instituicao,Doador
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView
@@ -58,5 +58,10 @@ class ProdutoCreate(CreateView):
    success_url = reverse_lazy('base')
 
 
+class DoadorCreate(CreateView):
+   model = Doador
+   fields = ['usuario', 'produto', 'instituicao']
+   template_name = 'confirmardoacao.html'
+   success_url = reverse_lazy('base')
 
 

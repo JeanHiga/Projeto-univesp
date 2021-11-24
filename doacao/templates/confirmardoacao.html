@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    <title>Confirmar</title>
+{% endblock %}
+
+{% block conteudo %}
+    <h3>Confirme para Registrar a Doação</h3>
+    <hr>
+
+    <form action="" method="POST">
+        <p>Selecione os dados para confirmar a doação <b>{{ object.quantidade}}</b></p>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success"> Confirmar </button>
+
+    </form>
+{% endblock %}

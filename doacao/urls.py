@@ -1,6 +1,7 @@
 from django.urls import path
 
-from .views import BaseView, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate
+from .views import BaseView, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate,DoadorCreate
+
 
 
 urlpatterns = [
@@ -16,4 +17,6 @@ urlpatterns = [
 
     path('cadastrar/produto/', ProdutoCreate.as_view(),name="cadastrar-produto"),
     path('listar/pedido/', Produtolist.as_view(), name="listar-pedido"),
+
+    path('confirmar/doacao/', DoadorCreate.as_view(), name="confirmar-doacao"),
 ]
