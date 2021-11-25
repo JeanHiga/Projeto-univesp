@@ -1,55 +1,91 @@
 {% load static %}
+
 <!DOCTYPE html>
-{% load crispy_forms_tags %} 
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Doações</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>      
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </head>
+    {% block titulo %}
+    <title>PROJETO DOAÇÕES</title>
+    {% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 
-</head>
-</head>
 <body>
-  {% block menu %}
-  <ul class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      MENU
-    </a>
-    <div class="dropdown-menu">
-        {% block menu_drop %}
-      <a class="dropdown-item" href="{% url 'cadastrar-usuario' %}"> Cadastar Usuario </a>
-      <a class="dropdown-item" href="{% url 'cadastrar-instituicao' %}"> Cadastar Instituição </a>
-      <a class="dropdown-item" href="{% url 'cadastrar-produto' %}"> Cadastar Produto </a>    
-      <a class="dropdown-item" href="{% url 'listar-usuario' %}"> Listar Usuario </a>
-      <a class="dropdown-item" href="{% url 'listar-instituicao' %}"> Listar Instituição </a>
-      <a class="dropdown-item" href="{% url 'listar-pedido' %}"> Listar Pedido </a>
+
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark ">
+  <!-- Brand -->
+  <a class="navbar-brand bg-secondary" href="{% url 'base' %}" >
+      <img src="{% static 'img/logo.png' %}" class="rounded" alt="Logo" style="width:100px;">
+  </a>
+  <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link"  href="{% url 'base' %}">Inicio</a>
+        </li>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link"  href="{% url 'base' %}">Sobre</a>
+        </li>
+    <ul class="navbar-nav">
+       <li class="nav-item">
+            <a class="nav-link"  href="{% url 'listar-pedido' %}">Listar Pedidos</a>
+        </li>
+
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Cadastros
+      </a>
+      <div class="dropdown-menu">
+          {% block menu_drop %}
+        <a class="dropdown-item" href="{% url 'listar-usuario' %}"> Cadastrar Usuario </a>
+        <a class="dropdown-item" href="{% url 'listar-instituicao' %}"> Cadastrar Instituição  </a>
+        <a class="dropdown-item" href="{% url 'cadastrar-produto' %}"> Cadastrar Produto </a>
+        
+          {% endblock %}
+      </div>
+    </li>
+
+    <li class="nav-item dropdown nav-item-right">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Login
+      </a>
+      <div class="dropdown-menu">
+          {% block menu_drop_login %}
+        <a class="dropdown-item" href="{% url 'login' %}"> Login </a>
+              {% if request.user.is_authenticated %}
+        <a class="dropdown-item" href="{% url 'base' %}"> Logout  </a>
+                  {% else %}
+                   <a class="dropdown-item" href="#"> Logout  </a>
+              {% endif %}
+          {% endblock %}
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="">
+        {% block conteudo %}
       
-        {% endblock %}
-    </div>
-  </ul> 
-  {% endblock %}
+        </li>
+      </ul>
+    {% endblock %}
+     </div>
+  </div>
+</div>
 
-  {% block conteudo %}
-    <div class=”container”>
-     
-        
-    </div>
-  {% endblock %}
+{% block footer %}
 
-  {% block rodape %}
-    <div class=”footer”>
-     
-        
-    </div>
-  {% endblock %}
+  
+</div>
+{% endblock %}
+
 </body>
 </html>

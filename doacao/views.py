@@ -62,6 +62,9 @@ class DoadorCreate(CreateView):
    model = Doador
    fields = ['usuario', 'produto', 'instituicao']
    template_name = 'confirmardoacao.html'
-   success_url = reverse_lazy('base')
+   success_url = reverse_lazy('confirmar-entrega')
 
-
+class EntregaList(ListView):
+   model = Produto
+   template_name = 'entrega.html'
+   

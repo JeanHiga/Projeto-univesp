@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %} 
+
+
+{% block conteudo %}
+
+    {% for produto in object_list %}     
+    <div class="container">
+        <h2>PARABÉNS - VOCÊ ACABA DE AJUDAR {{produto.instituicao.nome}}</h2>
+        <div class="list-group-item list-group-item-action">
+          <a href="#" class="list-group-item list-group-item-action list-group-item-secondary ">
+            <h4 class="list-group-item-heading">Aqui você encontra os dados da sua doação.</h4>
+            <p class="list-group-item-text">INSTITUIÇÃO - {{produto.instituicao.nome}}</p>
+            <p class="list-group-item-text">DOAÇÃO DE  - {{produto.nome}}</p>
+            <p class="list-group-item-text">QUANTIDADE - {{produto.quantidade}}</p>
+            <p class="list-group-item-text">ENDEREÇO - {{produto.instituicao.endereco}}</p>
+          </a>
+
+    {% endfor %}
+{% endblock %}

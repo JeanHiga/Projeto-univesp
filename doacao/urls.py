@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import BaseView, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate,DoadorCreate
+from .views import BaseView, EntregaList, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate,DoadorCreate
 
 
 
@@ -19,4 +19,5 @@ urlpatterns = [
     path('listar/pedido/', Produtolist.as_view(), name="listar-pedido"),
 
     path('confirmar/doacao/', DoadorCreate.as_view(), name="confirmar-doacao"),
+    path('confirmar/entrega/', EntregaList.as_view(), name="confirmar-entrega"),
 ]

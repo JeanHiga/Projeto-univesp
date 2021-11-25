@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %} 
 {% block conteudo %}
+<h3>
+    <a href="{% url 'cadastrar-instituicao' %}" class="btn btn-primary btn-sm float-left">Adicionar Instituição</a>
+    <br>
+    <br>
+    Lista de Instituições registradas
+    <br>
+    
+</h3>
 <table class="table table-striped">
     <tr>
         <th>id</th>

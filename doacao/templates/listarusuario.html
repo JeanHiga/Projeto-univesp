@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %} 
 {% block conteudo %}
+
+
+
+<h3>
+    <a href="{% url 'cadastrar-usuario' %}" class="btn btn-primary btn-sm float-left">Adicionar Usuario</a>
+    <br>
+    <br>
+    Lista de Usuários registrados
+    <br>
+    
+</h3>
+
 <table class="table table-striped">
     <tr>
         <th>id</th>
