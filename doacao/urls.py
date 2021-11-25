@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import BaseView, EntregaList, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate,DoadorCreate
+from .views import BaseView, EntregaList, InicioView, SobreView, UsuarioCreate, InstituicaoCreate, UsuarioDelete, Usuariolist, InstituicaoDelete, Instituicaolist, Produtolist, ProdutoCreate,DoadorCreate
 
 
 
@@ -20,4 +20,8 @@ urlpatterns = [
 
     path('confirmar/doacao/', DoadorCreate.as_view(), name="confirmar-doacao"),
     path('confirmar/entrega/', EntregaList.as_view(), name="confirmar-entrega"),
+
+    path('inicio', InicioView.as_view(), name='inicio'),
+    path('sobre', SobreView.as_view(), name='sobre'),
+
 ]

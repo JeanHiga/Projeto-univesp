@@ -11,6 +11,12 @@ from django.urls import reverse_lazy
 class BaseView(TemplateView):
    template_name = 'base.html'
 
+class InicioView(TemplateView):
+   template_name = 'inicio.html'
+
+class SobreView(TemplateView):
+   template_name = 'sobre.html'
+
 ##########USUARIO##############
 class UsuarioCreate(CreateView):
    model = Usuario
@@ -67,4 +73,6 @@ class DoadorCreate(CreateView):
 class EntregaList(ListView):
    model = Produto
    template_name = 'entrega.html'
+   paginate_by = 1
+
    
